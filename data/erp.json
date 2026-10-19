@@ -1,0 +1,107 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@careops.local",
+      "name": "Alex Morgan",
+      "role": "Administrator",
+      "salt": "9aa68926b7011d9650a1535a38def988",
+      "passwordHash": "1e2a497ea70ee400fba13a0d825bab6af6bf562b1c3e1d77ed7402886a158933fac858da4cd8dc22d95e271aafd8813ceea95440c26d8adea79a033eddd21d47"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Dr. Maya Patel",
+      "email": "maya.patel@northstar.org",
+      "department": "Clinical",
+      "role": "Medical Director",
+      "status": "Active",
+      "startDate": "2021-03-15"
+    },
+    {
+      "id": 2,
+      "name": "Jon Bell",
+      "email": "jon.bell@northstar.org",
+      "department": "Operations",
+      "role": "Operations Manager",
+      "status": "Active",
+      "startDate": "2022-08-01"
+    },
+    {
+      "id": 3,
+      "name": "Sofia Reyes",
+      "email": "sofia.reyes@northstar.org",
+      "department": "Clinical",
+      "role": "Registered Nurse",
+      "status": "Active",
+      "startDate": "2023-01-09"
+    },
+    {
+      "id": 4,
+      "name": "Liam Chen",
+      "email": "liam.chen@northstar.org",
+      "department": "Administration",
+      "role": "Finance Coordinator",
+      "status": "On leave",
+      "startDate": "2020-11-23"
+    }
+  ],
+  "inventory": [
+    {
+      "id": 2,
+      "name": "Surgical masks (box of 50)",
+      "category": "Medical supplies",
+      "quantity": 46,
+      "unitCost": 8.5,
+      "supplier": "Cardinal Health",
+      "reorderLevel": 50
+    },
+    {
+      "id": 3,
+      "name": "Saline solution 500ml",
+      "category": "Pharmacy",
+      "quantity": 125,
+      "unitCost": 4.25,
+      "supplier": "McKesson",
+      "reorderLevel": 40
+    },
+    {
+      "id": 5,
+      "name": "Exam table paper rolls",
+      "category": "Office",
+      "quantity": 8,
+      "unitCost": 12.25,
+      "supplier": "Medline",
+      "reorderLevel": 12
+    },
+    {
+      "id": 6,
+      "name": "Alcohol prep pads",
+      "category": "Medical supplies",
+      "quantity": 0,
+      "unitCost": 3.75,
+      "supplier": "Cardinal Health",
+      "reorderLevel": 20
+    },
+    {
+      "name": "paracetamol",
+      "category": "Equipment",
+      "supplier": "demon",
+      "quantity": 78,
+      "unitCost": 5,
+      "reorderLevel": 0,
+      "id": 7
+    }
+  ],
+  "sessions": {
+    "d6cc9cbc7983fa0406f6effeecbbd6fc116e0c490a17197bb2fe56c634926a0e": {
+      "userId": 1,
+      "createdAt": 1792405225704
+    },
+    "d6490b70f868cf04b07b24fb36d8521482393cb2c64fd63995439a50f29b1018": {
+      "userId": 1,
+      "createdAt": 1792406464050
+    }
+  }
+}

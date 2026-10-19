@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CareOps medical operations ERP dashboard" />
+  <title>CareOps · Operations ERP</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="login-screen" id="loginScreen" aria-labelledby="loginTitle">
+    <div class="login-card">
+      <div class="login-brand"><span class="brand-mark">✚</span><span>care<span>ops</span></span></div>
+      <div class="login-heading">
+        <p class="eyebrow">Northstar Clinic workspace</p>
+        <h1 id="loginTitle">Welcome back</h1>
+        <p>Sign in to manage your medical operations.</p>
+      </div>
+      <form id="loginForm" novalidate>
+        <div class="login-field"><label for="loginEmail">Email address</label><input id="loginEmail" type="email" autocomplete="username" placeholder="you@clinic.org" required /></div>
+        <div class="login-field"><label for="loginPassword">Password</label><div class="password-input"><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Enter your password" required minlength="6" /><button type="button" class="password-toggle" id="passwordToggle" aria-label="Show password" aria-pressed="false">Show</button></div></div>
+        <div class="login-options"><label class="checkbox-label"><input id="rememberLogin" type="checkbox" /> <span>Remember me</span></label><span class="demo-hint">Demo access enabled</span></div>
+        <button class="button primary login-button" type="submit">Sign in <span>→</span></button>
+        <p class="login-error" id="loginError" role="alert" aria-live="polite"></p>
+      </form>
+      <div class="demo-credentials"><strong>Demo credentials</strong><span>admin@careops.local</span><span>admin123</span></div>
+      <p class="login-note">Local application · Your data stays on this server</p>
+    </div>
+  </main>
+
+  <div class="app-shell" id="appShell" hidden>
+     <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-mark">✚</span><span>care<span>ops</span></span></div>
+      <div class="workspace-switcher"><span class="workspace-dot"></span><div><small>Workspace</small><strong>Northstar Clinic</strong></div><span class="chevron">⌄</span></div>
+      <nav aria-label="Primary navigation">
+        <p class="nav-label">Workspace</p>
+        <button class="nav-item active" data-section="dashboard"><span class="nav-icon">▦</span>Dashboard</button>
+        <button class="nav-item" data-section="employees"><span class="nav-icon">♙</span>Employees <span class="nav-count" id="employeeNavCount">0</span></button>
+        <button class="nav-item" data-section="inventory"><span class="nav-icon">▤</span>Inventory <span class="nav-count" id="inventoryNavCount">0</span></button>
+        <p class="nav-label">Data</p>
+        <button class="nav-item" data-section="import-export"><span class="nav-icon">⇄</span>Import / Export</button>
+      </nav>
+       <div class="sidebar-footer"><div class="avatar">AL</div><div><strong>Alex Morgan</strong><small>Administrator</small></div><button class="logout-button" id="logoutButton" type="button">Log out</button></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><button class="mobile-menu icon-button" id="mobileMenu" aria-label="Open navigation">☰</button><div class="breadcrumb"><span>Northstar Clinic</span><b>/</b><strong id="breadcrumbTitle">Dashboard</strong></div><div class="top-actions"><button class="icon-button" aria-label="Notifications">♧<i></i></button><div class="top-avatar">AM</div></div></header>
+      <div class="content-wrap">
+        <section class="page-section active" id="dashboardSection">
+          <div class="page-heading"><div><p class="eyebrow">Monday, October 21, 2024</p><h1>Good morning, Alex <span>✦</span></h1><p class="subheading">Here’s what’s happening across your operations today.</p></div><button class="button primary" id="quickAddBtn">＋ Quick add</button></div>
+          <div class="metric-grid">
+            <article class="metric-card"><div class="metric-head"><span>Total spending</span><span class="metric-icon blue">$</span></div><strong id="totalSpending">$0</strong><div class="trend up">↗ <span>12.8%</span><em>vs last month</em></div><div class="sparkline blue-line"><svg viewBox="0 0 240 38" preserveAspectRatio="none"><path d="M0 31 C18 30 19 22 35 25 S52 32 67 25 S86 19 100 22 S118 26 133 15 S153 18 168 12 S187 18 200 7 S222 10 240 2" fill="none" stroke="currentColor" stroke-width="3"/></svg></div></article>
+            <article class="metric-card"><div class="metric-head"><span>Balance left</span><span class="metric-icon green">⌁</span></div><strong id="balanceLeft">$0</strong><div class="trend down">↘ <span>4.2%</span><em>vs last month</em></div><div class="sparkline green-line"><svg viewBox="0 0 240 38" preserveAspectRatio="none"><path d="M0 12 C18 14 23 24 40 19 S61 6 76 15 S97 22 111 18 S131 30 146 19 S168 14 184 17 S205 8 220 11 S231 5 240 7" fill="none" stroke="currentColor" stroke-width="3"/></svg></div></article>
+            <article class="metric-card"><div class="metric-head"><span>Inventory value</span><span class="metric-icon orange">▤</span></div><strong id="inventoryValue">$0</strong><div class="trend up">↗ <span>8.1%</span><em>vs last month</em></div><div class="sparkline orange-line"><svg viewBox="0 0 240 38" preserveAspectRatio="none"><path d="M0 28 C21 27 22 16 39 21 S57 32 71 21 S89 23 105 14 S124 20 139 11 S157 18 173 15 S194 6 209 11 S229 5 240 4" fill="none" stroke="currentColor" stroke-width="3"/></svg></div></article>
+            <article class="metric-card"><div class="metric-head"><span>Active employees</span><span class="metric-icon purple">♙</span></div><strong id="employeeCount">0</strong><div class="trend neutral">• <span>Stable</span><em>across 4 departments</em></div><div class="avatar-stack" id="avatarStack"></div></article>
+          </div>
+          <div class="dashboard-grid"><article class="panel spending-panel"><div class="panel-heading"><div><h2>Spending overview</h2><p>Monthly expenses across all categories</p></div><select id="spendingPeriod" aria-label="Spending period"><option>Last 6 months</option><option>Last 12 months</option></select></div><div class="chart-wrap"><div class="y-axis"><span>$40k</span><span>$30k</span><span>$20k</span><span>$10k</span><span>$0</span></div><div class="bar-chart" id="barChart"><div class="grid-line g1"></div><div class="grid-line g2"></div><div class="grid-line g3"></div><div class="grid-line g4"></div></div></div><div class="chart-legend"><span><i class="legend-dot current"></i>Current period</span><span><i class="legend-dot previous"></i>Previous period</span></div></article><article class="panel category-panel"><div class="panel-heading"><div><h2>Inventory by category</h2><p>Current stock distribution</p></div><button class="text-button" data-section-link="inventory">View all <span>→</span></button></div><div class="donut-layout"><div class="donut" id="donutChart"><div><strong id="donutTotal">$0</strong><small>Total value</small></div></div><div class="legend-list" id="categoryLegend"></div></div></article></div>
+          <div class="dashboard-grid bottom-grid"><article class="panel activity-panel"><div class="panel-heading"><div><h2>Recent activity</h2><p>Latest updates from your workspace</p></div><button class="text-button">View all <span>→</span></button></div><div class="activity-list" id="activityList"></div></article><article class="panel alerts-panel"><div class="panel-heading"><div><h2>Needs attention</h2><p>Items that may need your review</p></div></div><div class="attention-list"><div class="attention-item"><span class="attention-icon warning">!</span><div><strong>Low stock alert</strong><p id="lowStockText">Review inventory levels</p></div><button class="text-button" data-section-link="inventory">Review</button></div><div class="attention-item"><span class="attention-icon info">i</span><div><strong>Keep your data current</strong><p>Import a CSV to update records</p></div><button class="text-button" data-section-link="import-export">Import</button></div></div></article></div>
+        </section>
+
+        <section class="page-section" id="employeesSection"><div class="page-heading"><div><p class="eyebrow">People & access</p><h1>Employees</h1><p class="subheading">Manage your team, roles, and department assignments.</p></div><button class="button primary" id="addEmployeeBtn">＋ Add employee</button></div><div class="toolbar"><div class="search-box"><span>⌕</span><input id="employeeSearch" type="search" placeholder="Search employees..." /></div><select id="departmentFilter" aria-label="Filter by department"><option value="">All departments</option><option>Clinical</option><option>Operations</option><option>Administration</option><option>Support</option></select><button class="button secondary" id="employeeExportBtn">⇩ Export CSV</button></div><div class="panel table-panel"><div class="table-responsive"><table><thead><tr><th>Employee</th><th>Department</th><th>Role</th><th>Status</th><th>Start date</th><th></th></tr></thead><tbody id="employeeTable"></tbody></table></div><div class="empty-state" id="employeeEmpty" hidden><span>♙</span><h3>No employees found</h3><p>Try another search or add your first employee.</p></div></div></section>
+
+        <section class="page-section" id="inventorySection"><div class="page-heading"><div><p class="eyebrow">Supplies & assets</p><h1>Inventory</h1><p class="subheading">Track stock levels, suppliers, and inventory value.</p></div><button class="button primary" id="addItemBtn">＋ Add item</button></div><div class="toolbar"><div class="search-box"><span>⌕</span><input id="inventorySearch" type="search" placeholder="Search inventory..." /></div><select id="categoryFilter" aria-label="Filter by category"><option value="">All categories</option><option>Medical supplies</option><option>Pharmacy</option><option>Equipment</option><option>Office</option></select><select id="stockFilter" aria-label="Filter by stock"><option value="">All stock levels</option><option value="low">Low stock</option><option value="out">Out of stock</option></select><button class="button secondary" id="inventoryExportBtn">⇩ Export CSV</button></div><div class="panel table-panel"><div class="table-responsive"><table><thead><tr><th>Item</th><th>Category</th><th>In stock</th><th>Unit cost</th><th>Total value</th><th>Supplier</th><th></th></tr></thead><tbody id="inventoryTable"></tbody></table></div><div class="empty-state" id="inventoryEmpty" hidden><span>▤</span><h3>No inventory found</h3><p>Try another filter or add your first item.</p></div></div></section>
+
+        <section class="page-section" id="import-exportSection"><div class="page-heading"><div><p class="eyebrow">Data management</p><h1>Import / Export</h1><p class="subheading">Move your operational data in and out of CareOps.</p></div></div><div class="import-grid"><article class="panel import-card"><div class="upload-icon">⇧</div><h2>Import CSV data</h2><p>Upload a CSV file to add employees or inventory items. Your existing records will stay safe.</p><label class="button primary file-label" for="csvInput">Choose CSV file</label><input id="csvInput" type="file" accept=".csv,text/csv" hidden /><div class="import-hint">Supported: employees, inventory · Max 10 MB</div><div id="importStatus" class="status-message" role="status"></div></article><article class="panel export-card"><div class="upload-icon download">⇩</div><h2>Export your data</h2><p>Download a complete snapshot of your current records for reporting or backup.</p><div class="export-actions"><button class="button secondary" id="exportEmployees">♙ Employees CSV</button><button class="button secondary" id="exportInventory">▤ Inventory CSV</button></div><div class="import-hint">CSV files are compatible with Excel and Google Sheets.</div></article></div><div class="panel csv-guide"><h2>CSV format guide</h2><p>Use these column headers when creating a file to import.</p><div class="guide-cols"><div><strong>Employees</strong><code>name, email, department, role, status, startDate</code></div><div><strong>Inventory</strong><code>name, category, quantity, unitCost, supplier, reorderLevel</code></div></div></div></section>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <div class="modal-backdrop" id="modalBackdrop" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose" aria-label="Close">×</button><h2 id="modalTitle">Add employee</h2><p id="modalDescription">Add a new record to your workspace.</p><form id="recordForm"></form></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
