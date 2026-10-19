@@ -1,6 +1,27 @@
 const $ = id => document.getElementById(id);
+const API_BASE = 'https://corps-h0en.onrender.com';
+
 let token = localStorage.getItem('careops-token') || '', employees = [], inventory = [], modalType = 'employee';
-const api = async (url, options = {}) => { options.headers = { 'Content-Type': 'application/json', ...(options.headers || {}) }; if (token) options.headers.Authorization = `Bearer ${token}`; const response = await fetch(url, options); const data = await response.json().catch(() => ({})); if (!response.ok) throw Error(data.error || 'Request failed'); return data; };
+
+const api = async (url, options = {}) => {
+  options.headers = {
+    'Content-Type': 'application/json',
+    ...(options.headers || {})
+  };
+
+  if (token) {
+    options.headers.Authorization = `Bearer ${token}`;
+  }
+
+  const response = await fetch(`${API_BASE}${url}`, options);
+  const data = await response.json().catch(() => ({}));
+
+  if (!response.ok) {
+    throw Error(data.error || 'Request failed');
+  }
+
+  return data;
+};
 const money = n => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n || 0);
 const date = s => s ? new Date(`${s}T00:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—';
 const initials = name => String(name || '').split(' ').map(x => x[0]).slice(0, 2).join('').toUpperCase();
